@@ -3,13 +3,10 @@
 ## Status
 
 🚧 In development — Fase 1 capstone project (Data Journey)
-🚧 Em desenvolvimento — projeto capstone da Fase 1 (Data Journey)
 
-## About / Sobre
+## About
 
-**EN:** ETL pipeline extracting, cleaning, and aggregating USD/BRL exchange rate data from the Brazilian Central Bank (BCB) SGS API, series 1. Built to practice end-to-end data engineering fundamentals: pure functions, type hints, automated tests, and logging.
-
-**PT:** Pipeline de ETL que extrai, trata e agrega a cotação do dólar (USD/BRL) via API SGS do Banco Central, série 1. Construído para praticar os fundamentos de engenharia de dados ponta a ponta: funções puras, type hints, testes automatizados e logging.
+ETL pipeline extracting, cleaning, and aggregating USD/BRL exchange rate data from the Brazilian Central Bank (BCB) SGS API, series 1. Built to practice end-to-end data engineering fundamentals: pure functions, type hints, automated tests, and logging.
 
 ## Stack
 
@@ -19,7 +16,7 @@
 - pytest
 - pyarrow (Parquet)
 
-## Structure / Estrutura
+## Structure
 
 etl-dolar-bcb/
 ├── src/
@@ -41,31 +38,29 @@ etl-dolar-bcb/
 
 ### Extract
 
-- **Source / Fonte:** BCB SGS API, series `1` (USD/BRL commercial rate, sell / dólar comercial, venda, diário). No authentication required.
-- **Date range / Período:** **TBD**
+- **Source:** BCB SGS API, series `1` (USD/BRL commercial rate, sell, daily). No authentication required.
+- **Date range:** TBD
 
 ### Transform
 
-- Type conversion: date string → `datetime`, value string → `float` / Conversão de tipos: data em string → `datetime`, valor em string → `float`
-- Handling of missing values (non-trading days) / Tratamento de valores ausentes (dias sem pregão)
-- At least one `groupby` aggregation / Pelo menos uma agregação com `groupby` — granularity **TBD** (likely monthly summary: mean/min/max/std)
-- Optional: daily percentage change as a derived column / Opcional: variação percentual diária como coluna derivada
+- Type conversion: date string → `datetime`, value string → `float`
+- Handling of missing values (non-trading days)
+- At least one `groupby` aggregation — granularity TBD (likely monthly summary: mean/min/max/std)
+- Optional: daily percentage change as a derived column
 
 ### Load
 
-- Output format: Parquet / Formato de saída: Parquet
-- Location and file structure in `data/processed/`: **TBD**
+- Output format: Parquet
+- Location and file structure in `data/processed/`: TBD
 
-## Decisions / Decisões
+## Decisions
 
 _This section is updated as choices are made during development._
-_Esta seção é atualizada conforme as decisões são tomadas ao longo do desenvolvimento._
 
-- Date range chosen and why / Período escolhido e por quê: —
-- Aggregation granularity chosen and why / Granularidade da agregação escolhida e por quê: —
-- Output structure chosen and why / Estrutura de saída escolhida e por quê: —
+- Date range chosen and why: —
+- Aggregation granularity chosen and why: —
+- Output structure chosen and why: —
 
-## How to run / Como rodar
+## How to run
 
 _To be added once `pipeline.py` is implemented._
-_A ser adicionado assim que `pipeline.py` estiver implementado._
