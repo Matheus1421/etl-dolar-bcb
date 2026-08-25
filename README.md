@@ -18,6 +18,7 @@ ETL pipeline extracting, cleaning, and aggregating USD/BRL exchange rate data fr
 
 ## Structure
 
+```
 etl-dolar-bcb/
 ├── src/
 │   ├── extract.py
@@ -33,6 +34,7 @@ etl-dolar-bcb/
 │   └── processed/
 ├── requirements.txt
 └── README.md
+```
 
 ## Pipeline
 
