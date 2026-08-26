@@ -1,0 +1,21 @@
+# Ambiente virtual
+venv/
+
+# Bytecode compilado do Python
+__pycache__/
+*.pyc
+
+# Variáveis de ambiente (não usamos autenticação hoje, mas é hábito prever)
+.env
+
+# Cache do pytest
+.pytest_cache/
+
+# Dados do projeto — reproduzíveis rodando o pipeline, e a série muda diariamente
+data/
+
+# Configurações locais do editor
+.vscode/
+
+# Lixo do Windows Explorer
+Thumbs.db
