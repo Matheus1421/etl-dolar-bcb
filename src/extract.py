@@ -26,14 +26,12 @@ def extract_data() -> list[dict]:
     logger.info(f"Successfully completed data extraction: {len(data['value'])} records retrieved")
     return data['value']
 
-def save_raw_data(dados: list[dict]) -> None:
+def save_raw_data(dados: list[dict], path: str = "data/raw/raw.json") -> None:
     logger.info("Ensuring raw data folder exists")
-    os.makedirs("data/raw", exist_ok=True)
+    os.makedirs(os.path.dirname(path), exist_ok=True)
 
-    logger.info("Saving raw data to data/raw/raw.json")
-    with open("data/raw/raw.json", "w", encoding="utf-8") as f:
+    logger.info(f"Saving raw data to {path}")
+    with open(path, "w", encoding="utf-8") as f:
         json.dump(dados, f, ensure_ascii=False, indent=2)
 
-    logger.info(f"Raw data saved: {len(dados)} records written to data/raw/raw.json")
-
-
+    logger.info(f"Raw data saved: {len(dados)} records written to {path}")
