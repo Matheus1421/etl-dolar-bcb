@@ -19,3 +19,6 @@ data/
 
 # Lixo do Windows Explorer
 Thumbs.db
+
+# Arquivos de exploração descartável (não fazem parte do pipeline)
+scratch*.py
