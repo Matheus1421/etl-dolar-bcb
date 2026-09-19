@@ -1,12 +1,12 @@
-# etl-dolar-bcb
+# ETL - Dollar Historical in Brazil
 
 ## Status
 
-🚧 In development — Fase 1 capstone project (Data Journey)
+🚧 In development — Fase 1 capstone project (Data Journey). Extract complete and tested; Transform in design.
 
 ## About
 
-ETL pipeline extracting, cleaning, and aggregating USD/BRL exchange rate data from the Brazilian Central Bank (BCB) SGS API, series 1. Built to practice end-to-end data engineering fundamentals: pure functions, type hints, automated tests, and logging.
+ETL pipeline extracting, cleaning, and classifying USD/BRL exchange rate data from the Brazilian Central Bank (BCB) PTAX/Olinda API, covering the full historical series from 1985 to the present — including three distinct exchange-rate regimes and Brazil's currency redenominations along the way. Built to practice end-to-end data engineering fundamentals: pure functions, type hints, automated tests, and logging.
 
 ## Stack
 
@@ -38,30 +38,17 @@ etl-dolar-bcb/
 
 ## Pipeline
 
-### Extract
+### Extract - Complete ✅
 
-- **Source:** BCB SGS API, series `1` (USD/BRL commercial rate, sell, daily). No authentication required.
-- **Date range:** TBD
+- **Source:** BCB API - https://dadosabertos.bcb.gov.br/dataset/dolar-americano-usd-todos-os-boletins-diarios
+- **Date range:** 1985-01-01 through today (dynamic). 
+- **Excluded:** 1984 data, there are only 22 irregular records, multiple quotes per day — insufficient granularity.
+- `extract.py` exposes `extract_data()` (fetches and returns the raw records) and `save_raw_data()` (writes them to `data/raw/raw.json`). Fully covered by `tests/test_extract.py` (3/3 passing), using `unittest.mock` and the `tmp_path` fixture.
 
-### Transform
+### Transform — in design 🏗️
 
-- Type conversion: date string → `datetime`, value string → `float`
-- Handling of missing values (non-trading days)
-- At least one `groupby` aggregation — granularity TBD (likely monthly summary: mean/min/max/std)
-- Optional: daily percentage change as a derived column
 
-### Load
-
-- Output format: Parquet
-- Location and file structure in `data/processed/`: TBD
-
-## Decisions
-
-_This section is updated as choices are made during development._
-
-- Date range chosen and why: —
-- Aggregation granularity chosen and why: —
-- Output structure chosen and why: —
+### Load - to be done 🔜
 
 ## How to run
 
