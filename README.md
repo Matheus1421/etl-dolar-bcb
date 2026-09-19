@@ -34,13 +34,13 @@ etl-dolar-bcb/
 
 ## Pipeline
 
-### Extract — done
+### Extract 
 
 - **Source:** BCB PTAX/Olinda API (OData), `CotacaoDolarPeriodo` endpoint. No authentication required.
 - **Date range:** 1985-01-01 through today (dynamic). No date-range cap and no need for `$top`/pagination — verified empirically against the full history (10,450 records, no truncation). 1984 excluded (only 22 irregular records).
 - `extract_data()` fetches and returns the raw records; `save_raw_data()` writes them to `data/raw/raw.json`. Covered by `tests/test_extract.py` (3/3 passing).
 
-### Transform — done
+### Transform 
 
 - Type conversion: `dataHoraCotacao` string → `datetime`. `cotacaoCompra`/`cotacaoVenda` arrive as floats already.
 - Filters out records before 1985-01-01.
@@ -51,7 +51,7 @@ etl-dolar-bcb/
 - Output: a single DataFrame (not split per regime), one row per original record.
 - Covered by `tests/test_transform.py` (12/12 passing).
 
-### Load — done
+### Load 
 
 - Writes the final DataFrame to Parquet at `data/processed/processed.parquet`, using `pandas.DataFrame.to_parquet` (with `pyarrow` as the underlying engine).
 - Drops the pandas row index (`index=False`) before writing — it becomes fragmented by the 1985 filter applied in Transform and carries no useful information.
