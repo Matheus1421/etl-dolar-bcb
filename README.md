@@ -1,9 +1,5 @@
 # etl-dolar-bcb
 
-## Status
-
-🟢 Complete — Fase 1 capstone project (Data Journey). All three ETL stages (Extract, Transform, Load) implemented, tested (18/18 tests passing), and orchestrated end-to-end by `pipeline.py`.
-
 ## About
 
 ETL pipeline extracting, cleaning, and classifying USD/BRL exchange rate data from the Brazilian Central Bank (BCB) PTAX/Olinda API, covering the full historical series from 1985 to the present — including three distinct exchange-rate regimes and the currency redenominations Brazil went through along the way. Built to practice end-to-end data engineering fundamentals: pure functions, type hints, automated tests, and logging.
